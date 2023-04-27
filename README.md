@@ -80,7 +80,7 @@ Helm 2.x syntax
 $ helm install --name db23cfree --set oracle_pwd=databasePwd123 oracle-db23c-free-1.0.0.tgz
 ```
 
-The above command sets the Oracle Database name password to 'databasePwd123'.
+The above command sets the Oracle Database password to 'databasePwd123'.
 
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart. For example,
 
