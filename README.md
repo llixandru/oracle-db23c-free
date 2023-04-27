@@ -95,6 +95,9 @@ $ helm install --name db23cfree -f values.yaml oracle-db23c-free-1.0.0.tgz
 
 > **Tip**: You can use the default [values.yaml](values.yaml)
  
+ ## Image
+ 
+ You can see more information about the image used on the [Oracle Container Registry](https://container-registry.oracle.com/ords/f?p=113:4:104702792064689:::4:P4_REPOSITORY,AI_REPOSITORY,AI_REPOSITORY_NAME,P4_REPOSITORY_NAME,P4_EULA_ID,P4_BUSINESS_AREA_ID:1863,1863,Oracle%20Database%20Free,Oracle%20Database%20Free,1,0&cs=3jiKP0A-IVI1HxQG6noqQoae6RbUZUIgcuJRn1nq4dff0fS68RJKgmKFF5xxXSsZGcIk0q4qayORPDGMk6LHQgg) page.
 
 ## Persistence
 
