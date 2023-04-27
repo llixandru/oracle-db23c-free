@@ -2,8 +2,8 @@
 [Oracle](http://www.oracle.com) Database 23c Free—Developer Release is the same, powerful Oracle Database that businesses throughout the world rely on. It offers a full-featured experience and is packaged for ease of use and simple download—for free.
 
 ## Getting started
-A Helm chart is used for packaging the deployment yamls to simplify install in Kubernetes. The chart is available at [helm-charts/oracle-db](./) directory.
-Clone the repo and execute the following command to generate oracle-db23c-free-1.0.0.tgz
+A Helm chart is used for packaging the deployment yamls to simplify install in Kubernetes. Clone the repo and execute the following command to generate oracle-db23c-free-1.0.0.tgz:
+
 ```
 $ helm package oracle-db23c-free
 ```
@@ -16,7 +16,7 @@ For more information on Oracle Database 23c Free—Developer Release refer to ht
 
 ## Prerequisites
 
-- Kubernetes 1.24+
+- Kubernetes 1.23+
 - Helm 2.x or 3.x
 
 ## Installing the Chart
@@ -67,7 +67,7 @@ The following tables lists the configurable parameters of the Oracle  Database c
 | loadBalService                       | Create a load balancer service instead of NodePort | false                                              |
 | image                                | Image to pull                              | container-registry.oracle.com/database/free:latest |
 | imagePullPolicy                      | Image pull policy                          | Always                                                     |
-| imagePullSecrets                     | container registry login/password          |                                                            |
+| imagePullSecrets                     | container registry login/password          | None needed for Oracle Database 23c Free - Developer Release                                                           |
 | enable_archivelog                    | Set true to enable archive log mode when creating the database | false                                                      |
 
 
