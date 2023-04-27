@@ -1,47 +1,36 @@
 # Oracle Database
 [Oracle](http://www.oracle.com)
-Database 19c is an industry leading relational database server.
+Oracle Database 23c Free—Developer Release is the same, powerful Oracle Database that businesses throughout the world rely on. It offers a full-featured experience and is packaged for ease of use and simple download—for free.
 
 ## Getting started
 A Helm chart is used for packaging the deployment yamls to simplify install in Kubernetes. The chart is available at [helm-charts/oracle-db](./) directory.
-Clone the repo and execute the following command to generate oracle-db-1.0.0.tgz
+Clone the repo and execute the following command to generate oracle-db23c-free-1.0.0.tgz
 ```
-$ helm package helm-charts/oracle-db
+$ helm package oracle-db23c-free
 ```
 
 ## Introduction
 
-The Oracle Database Chart contains the Oracle Database 19c running on Oracle Linux 7. This image contains a default database in a multitenant configuration with one pdb.
+The Oracle Database Chart contains the Oracle Database 23c Free - Developer Release. 
 
-For more information on Oracle Database 19c refer to http://docs.oracle.com/en/database/
+For more information on Oracle Database 23c Free—Developer Release refer to https://www.oracle.com/database/free/
 
 ## Prerequisites
 
-- Kubernetes 1.12+
+- Kubernetes 1.24+
 - Helm 2.x or 3.x
-- NFS PV: https://kubernetes.io/docs/concepts/storage/volumes/#nfs
-- Using Oracle Database Docker image requires you to accept terms of service
-- Create image pull secrets
-    ``` 
-    $ kubectl create secret docker-registry regcred --docker-server=container-registry.oracle.com --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
-    ```
-
-## Using Oracle  Database Docker image
-### Accepting the terms of service
-From the https://container-registry.oracle.com website accept `Terms of Service` for Oracle Database Enterprise Edition.
-
 
 ## Installing the Chart
 
-To install the chart with the release name `db19c`:
+To install the chart with the release name `db23cfree`:
 
 Helm 3.x syntax
 ```
-$ helm install db19c oracle-db-1.0.0.tgz
+$ helm install db23cfree oracle-db23c-free-1.0.0.tgz
 ```
 Helm 2.x syntax
 ```
-$ helm install --name db19c oracle-db-1.0.0.tgz
+$ helm install --name db23cfree oracle-db23c-free-1.0.0.tgz
 ```
 
 The command deploys Oracle Database on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -50,15 +39,15 @@ The command deploys Oracle Database on the Kubernetes cluster in the default con
 
 ## Uninstalling the Chart
 
-To uninstall/delete the `db19c` deployment:
+To uninstall/delete the `db23cfree` deployment:
 
 Helm 3.x syntax
 ```
-$ helm uninstall db19c 
+$ helm uninstall db23cfree 
 ```
 Helm 2.x syntax
 ```
-$ helm delete db19c
+$ helm delete db23cfree
 ```
 
 The command removes all the Kubernetes components associated with the chart and deletes the release.
@@ -69,15 +58,15 @@ The following tables lists the configurable parameters of the Oracle  Database c
 
 | Parameter                            | Description                                | Default                                                    |
 | -------------------------------      | -------------------------------            | ---------------------------------------------------------- |
-| oracle_sid                           | Database name (ORACLE_SID)                 | ORCLCDB                                                    |
-| oracle_pdb                           | PDB name                                   | ORCLPDB1                                                   |
+| oracle_sid                           | Database name (ORACLE_SID)                 | FREE                                                    |
+| oracle_pdb                           | PDB name                                   | FREEPDB1                                                   |
 | oracle_pwd                           | SYS, SYSTEM and PDB_ADMIN password         | Auto generated                                             |
 | oracle_characterset                  | The character set to use                   | AL32UTF8                                                   |
-| oracle_edition                       | The database edition                       | enterprise                                                 |
+| oracle_edition                       | The database edition                       | standard                                                 |
 | persistence.size                     | Size of persistence storage                | 100g                                                       |
-| persistence.storageClass             | Storage Class for PVC                      |                                                            |
+| persistence.storageClass             | Storage Class for PVC                      | oci-bv                                                           |
 | loadBalService                       | Create a load balancer service instead of NodePort | false                                              |
-| image                                | Image to pull                              | container-registry.oracle.com/database/enterprise:19.3.0.0 |
+| image                                | Image to pull                              | container-registry.oracle.com/database/free:latest |
 | imagePullPolicy                      | Image pull policy                          | Always                                                     |
 | imagePullSecrets                     | container registry login/password          |                                                            |
 | enable_archivelog                    | Set true to enable archive log mode when creating the database | false                                                      |
@@ -87,11 +76,11 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 
 Helm 3.x syntax
 ```
-$ helm install db19c --set oracle_sid=ORCL,oracle_pdb=prod oracle-db-1.0.0.tgz
+$ helm install db23cfree --set oracle_sid=ORCL,oracle_pdb=dev oracle-db23c-free-1.0.0.tgz
 ```
 Helm 2.x syntax
 ```
-$ helm install --name db19c --set oracle_sid=ORCL,oracle_pdb=prod oracle-db-1.0.0.tgz
+$ helm install --name db23cfree --set oracle_sid=ORCL,oracle_pdb=dev oracle-db23c-free-1.0.0.tgz
 ```
 
 The above command sets  the Oracle Database name to 'ORCL' and PDB name to 'prod'.
@@ -100,11 +89,11 @@ Alternatively, a YAML file that specifies the values for the above parameters ca
 
 Helm 3.x syntax
 ```
-$ helm install db19c -f values.yaml oracle-db-1.0.0.tgz
+$ helm install db23cfree -f values.yaml oracle-db23c-free-1.0.0.tgz
 ```
 Helm 2.x syntax
 ```
-$ helm install --name db19c -f values.yaml oracle-db-1.0.0.tgz
+$ helm install --name db23cfree -f values.yaml oracle-db23c-free-1.0.0.tgz
 ```
 
 > **Tip**: You can use the default [values.yaml](values.yaml)
