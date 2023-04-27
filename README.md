@@ -2,7 +2,9 @@
 [Oracle](http://www.oracle.com) Database 23c Free—Developer Release is the same, powerful Oracle Database that businesses throughout the world rely on. It offers a full-featured experience and is packaged for ease of use and simple download—for free.
 
 ## Getting started
-A Helm chart is used for packaging the deployment yamls to simplify install in Kubernetes. Clone the repo and execute the following command to generate oracle-db23c-free-1.0.0.tgz:
+A Helm chart is used for packaging the deployment yamls to simplify install in Kubernetes. Using [helm-charts/oracle-db](https://github.com/oracle/docker-images/tree/main/OracleDatabase/SingleInstance/helm-charts/oracle-db) as base and modified it for use with Oracle Database 23c Free - Developer Release. 
+
+Clone the repo and execute the following command to generate oracle-db23c-free-1.0.0.tgz:
 
 ```
 $ helm package oracle-db23c-free
