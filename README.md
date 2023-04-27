@@ -68,19 +68,25 @@ The following tables lists the configurable parameters of the Oracle  Database c
 | imagePullPolicy                      | Image pull policy                          | Always                                                     |
 | enable_archivelog                    | Set true to enable archive log mode when creating the database | false                                                      |
 
+ORACLE_SID and ORACLE_PDB are not configurable for Oracle Database 23c Free - Developer Release.
+
+|Environment variable   | Value     |
+|---------------------- | --------- |
+|ORACLE_SID             | FREE      |
+|ORACLE_PDB             | FREEPDB1  |
 
 Specify each parameter using the `--set key=value[,key=value]` argument to `helm install`. For example,
 
 Helm 3.x syntax
 ```
-$ helm install db23cfree --set oracle_pwd=databasePwd123 oracle-db23c-free-1.0.0.tgz
+$ helm install db23cfree --set oracle_pwd=<your_password> oracle-db23c-free-1.0.0.tgz
 ```
 Helm 2.x syntax
 ```
-$ helm install --name db23cfree --set oracle_pwd=databasePwd123 oracle-db23c-free-1.0.0.tgz
+$ helm install --name db23cfree --set oracle_pwd=<your_password> oracle-db23c-free-1.0.0.tgz
 ```
 
-The above command sets the Oracle Database password to 'databasePwd123'.
+The above command sets the Oracle Database password to <your_password>.
 
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart. For example,
 
@@ -106,3 +112,19 @@ The [Oracle Database](https://www.oracle.com) image stores the Oracle Database d
 Persistent Volume Claims are used to keep the data across deployments. 
 See the [Configuration](#configuration) section to configure the PVC or to disable persistence.
 
+## Connecting to the database
+
+Connecting to the CDB as SYSDBA:
+
+```
+kubectl exec -it pods/pod-name -n db23c -- sqlplus sys/<your_password>@FREE as sysdba
+```
+
+Connecting to the PDB as SYSDBA:
+
+```
+kubectl exec -it pods/pod-name -n db23c -- sqlplus sys/<your_password>@FREEPDB1 as sysdba
+```
+
+
+> Your feedback is important to us! Connect with us if you have any questions or feedback on Oracle Database 23c Free — Developer Release: https://community.oracle.com/hub
