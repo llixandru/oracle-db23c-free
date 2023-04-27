@@ -59,17 +59,13 @@ The following tables lists the configurable parameters of the Oracle  Database c
 
 | Parameter                            | Description                                | Default                                                    |
 | -------------------------------      | -------------------------------            | ---------------------------------------------------------- |
-| oracle_sid                           | Database name (ORACLE_SID)                 | FREE                                                    |
-| oracle_pdb                           | PDB name                                   | FREEPDB1                                                   |
 | oracle_pwd                           | SYS, SYSTEM and PDB_ADMIN password         | Auto generated                                             |
 | oracle_characterset                  | The character set to use                   | AL32UTF8                                                   |
-| oracle_edition                       | The database edition                       | standard                                                 |
 | persistence.size                     | Size of persistence storage                | 100g                                                       |
 | persistence.storageClass             | Storage Class for PVC                      | oci-bv                                                           |
 | loadBalService                       | Create a load balancer service instead of NodePort | false                                              |
 | image                                | Image to pull                              | container-registry.oracle.com/database/free:latest |
 | imagePullPolicy                      | Image pull policy                          | Always                                                     |
-| imagePullSecrets                     | container registry login/password          | None needed for Oracle Database 23c Free - Developer Release                                                           |
 | enable_archivelog                    | Set true to enable archive log mode when creating the database | false                                                      |
 
 
@@ -77,14 +73,14 @@ Specify each parameter using the `--set key=value[,key=value]` argument to `helm
 
 Helm 3.x syntax
 ```
-$ helm install db23cfree --set oracle_sid=ORCL,oracle_pdb=dev oracle-db23c-free-1.0.0.tgz
+$ helm install db23cfree --set oracle_pwd=databasePwd123 oracle-db23c-free-1.0.0.tgz
 ```
 Helm 2.x syntax
 ```
-$ helm install --name db23cfree --set oracle_sid=ORCL,oracle_pdb=dev oracle-db23c-free-1.0.0.tgz
+$ helm install --name db23cfree --set oracle_pwd=databasePwd123 oracle-db23c-free-1.0.0.tgz
 ```
 
-The above command sets  the Oracle Database name to 'ORCL' and PDB name to 'prod'.
+The above command sets the Oracle Database name password to 'databasePwd123'.
 
 Alternatively, a YAML file that specifies the values for the above parameters can be provided while installing the chart. For example,
 
