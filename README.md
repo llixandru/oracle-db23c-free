@@ -1,6 +1,5 @@
-# Oracle Database
-[Oracle](http://www.oracle.com)
-Oracle Database 23c Free—Developer Release is the same, powerful Oracle Database that businesses throughout the world rely on. It offers a full-featured experience and is packaged for ease of use and simple download—for free.
+# Oracle Database 23c Free - Developer Release
+[Oracle](http://www.oracle.com) Database 23c Free—Developer Release is the same, powerful Oracle Database that businesses throughout the world rely on. It offers a full-featured experience and is packaged for ease of use and simple download—for free.
 
 ## Getting started
 A Helm chart is used for packaging the deployment yamls to simplify install in Kubernetes. The chart is available at [helm-charts/oracle-db](./) directory.
